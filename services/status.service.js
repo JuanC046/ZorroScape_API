@@ -6,11 +6,12 @@ class StatusService extends FileService {
   }
 
   async getData(fileName, fileType){
-    const data = await this.readFile(fileName, fileType);
-    console.log(data);
+    let data = await this.readFile(fileName, fileType);
+    data = JSON.parse(data);
+    return data;
   }
 
 }
 
 
-module.exports = new ExampleService();
+module.exports = new StatusService();
