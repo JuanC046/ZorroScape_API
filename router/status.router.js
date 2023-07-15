@@ -5,3 +5,5 @@ router.get('idle/current', async (req, res, err) => {
     const status = await statusService.getData();
     res.status(200).json(status);
   });
+
+module.exports = router;
