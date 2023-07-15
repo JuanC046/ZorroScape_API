@@ -12,7 +12,9 @@ class FileService {
   }
 
   async readFile(fileName, fileType) {
-    let data =  await fs.readFileSync(`${this.basePath}/${fileName}.${fileType}`);
+    console.log(`${this.basePath}/${fileName}.${fileType}`)
+    let data =  await fs.readFileSync(`${this.basePath}/${fileName}.${fileType}`,"utf-8");
+    console.log(data)
     return  data;
   }
 
