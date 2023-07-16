@@ -53,5 +53,36 @@ router.post('/reset/start', async (req, res, err) => {
     res.status(200).json(status);
   });
 
+  router.put('/movement/down', async (req, res, err) => {
+    newData = {
+      "x": 0,
+      "y": -10,
+      "attacking":0,
+      "jumping": false
+    }
+    let status = await statusService.returnStatus("game_status","json",newData);
+    res.status(200).json(status);
+  });
+  router.put('/attack/right', async (req, res, err) => {
+    newData = {
+      "x": 10,
+      "y": 0,
+      "attacking":10,
+      "jumping": false
+    }
+    let status = await statusService.returnStatus("game_status","json",newData);
+    res.status(200).json(status);
+  });
+  router.put('/attack/left', async (req, res, err) => {
+    newData = {
+      "x": -10,
+      "y": 0,
+      "attacking":-10,
+      "jumping": false
+    }
+    let status = await statusService.returnStatus("game_status","json",newData);
+    res.status(200).json(status);
+  });
+
 
 module.exports = router;
