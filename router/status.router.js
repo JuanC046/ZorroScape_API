@@ -115,6 +115,10 @@ router.post('/reset/start', async (req, res, err) => {
     await statusService.writeLog("game_log","txt","Jumping left");
   });
 
-  router.delete('/die/current')
+  router.delete('/die/current', async (req, res, err) => {
+    await statusService.deleteLog("game_log","txt","Jumping left");
+    res.status(200).send("game_log deleted");
+  });
+
 
 module.exports = router;

@@ -65,6 +65,9 @@ class StatusService extends FileService {
       await this.createFile(fileName, fileType,data)
       }
   }
+  async deleteLog(fileName,fileType){
+    await this.deleteRef(fileName,fileType)
+  }
 }
 
 
