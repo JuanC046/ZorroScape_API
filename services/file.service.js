@@ -30,6 +30,9 @@ class FileService {
       return flag;
     }
   }
+  async writeFile(fileName, fileType,data){
+    await fs.appendFileSync(`${this.basePath}/${fileName}.${fileType}`,data)
+  }
 
   deleteRef(fileName, fileType) {
     let deleted = true;
