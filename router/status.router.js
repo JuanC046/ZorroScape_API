@@ -29,6 +29,7 @@ router.post('/reset/start', async (req, res, err) => {
     }
     let status = await statusService.returnStatus("game_status","json",newData);
     res.status(200).json(status);
+    await statusService.writeLog("game_log","txt","Moving right");
   });
 
   router.put('/movement/left', async (req, res, err) => {
@@ -40,6 +41,7 @@ router.post('/reset/start', async (req, res, err) => {
     }
     let status = await statusService.returnStatus("game_status","json",newData);
     res.status(200).json(status);
+    await statusService.writeLog("game_log","txt","Moving left");
   });
 
   router.put('/movement/up', async (req, res, err) => {
@@ -51,6 +53,7 @@ router.post('/reset/start', async (req, res, err) => {
     }
     let status = await statusService.returnStatus("game_status","json",newData);
     res.status(200).json(status);
+    await statusService.writeLog("game_log","txt","Moving up");
   });
 
   router.put('/movement/down', async (req, res, err) => {
@@ -62,6 +65,7 @@ router.post('/reset/start', async (req, res, err) => {
     }
     let status = await statusService.returnStatus("game_status","json",newData);
     res.status(200).json(status);
+    await statusService.writeLog("game_log","txt","Moving down");
   });
   router.put('/attack/right', async (req, res, err) => {
     newData = {
@@ -72,6 +76,7 @@ router.post('/reset/start', async (req, res, err) => {
     }
     let status = await statusService.returnStatus("game_status","json",newData);
     res.status(200).json(status);
+    await statusService.writeLog("game_log","txt","Attacking right");
   });
 
   router.put('/attack/left', async (req, res, err) => {
@@ -83,6 +88,7 @@ router.post('/reset/start', async (req, res, err) => {
     }
     let status = await statusService.returnStatus("game_status","json",newData);
     res.status(200).json(status);
+    await statusService.writeLog("game_log","txt","Attacking left");
   });
 
   router.put('/jump/right', async (req, res, err) => {
@@ -94,6 +100,7 @@ router.post('/reset/start', async (req, res, err) => {
     }
     let status = await statusService.returnStatus("game_status","json",newData);
     res.status(200).json(status);
+    await statusService.writeLog("game_log","txt","Jumping right");
   });
 
   router.put('/jump/left', async (req, res, err) => {
@@ -105,7 +112,9 @@ router.post('/reset/start', async (req, res, err) => {
     }
     let status = await statusService.returnStatus("game_status","json",newData);
     res.status(200).json(status);
+    await statusService.writeLog("game_log","txt","Jumping left");
   });
 
+  router.delete('/die/current')
 
 module.exports = router;
