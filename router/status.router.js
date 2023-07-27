@@ -7,7 +7,7 @@ router.get('/idle/current', async (req, res, err) => {
     res.status(200).json(status);
   });
 
-router.post('/reset/start', async (req, res, err) => {
+router.post('/idle/start', async (req, res, err) => {
     let resetData = {
       "x": 0,
       "y": 0,
@@ -115,10 +115,13 @@ router.post('/reset/start', async (req, res, err) => {
     await statusService.writeLog("game_log","txt","Jumping left");
   });
 
-  router.delete('/die/current', async (req, res, err) => {
+  router.delete('/idle/die', async (req, res, err) => {
     await statusService.deleteLog("game_log","txt");
-    res.status(200).send("game_log deleted");
+    res.status(200).send("Game Over\ngame_log deleted");
   });
 
+  router.get('/idle/win', async (req, res, err) => {
+    res.status(200).send("WINNER??");
+  });
 
 module.exports = router;
