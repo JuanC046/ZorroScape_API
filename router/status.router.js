@@ -116,7 +116,7 @@ router.post('/reset/start', async (req, res, err) => {
   });
 
   router.delete('/die/current', async (req, res, err) => {
-    await statusService.deleteLog("game_log","txt","Jumping left");
+    await statusService.deleteLog("game_log","txt");
     res.status(200).send("game_log deleted");
   });
 
